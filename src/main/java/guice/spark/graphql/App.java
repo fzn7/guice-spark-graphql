@@ -9,20 +9,14 @@ import com.google.inject.Injector;
 
 public class App {
     @Inject
-    private HelloWorldService service;//hello service
+    private GraphQLService service;
 
     public static void main(String[] args) {
         App app = new App();
 
-        Injector injector = Guice.createInjector(new HelloWorldModule());
+        Injector injector = Guice.createInjector(new GraphQLModule());
         injector.injectMembers(app);
 
-        app.testGuice();
-    }
-
-
-    public void testGuice()
-    {
-        service.sayHello();//usage of the service
+        app.service.initialize();
     }
 }

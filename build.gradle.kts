@@ -12,6 +12,8 @@ plugins {
 
     // Apply the application plugin to add support for building a CLI application.
     application
+
+    id("io.freefair.lombok") version "6.0.0-m2"
 }
 
 repositories {
@@ -23,9 +25,17 @@ repositories {
 dependencies {
     // This dependency is used by the application.
     implementation("com.google.guava:guava:29.0-jre")
-    // https://mvnrepository.com/artifact/com.google.inject/guice
-    implementation("com.google.inject:guice:5.0.1")
+    //Guice
+    implementation("com.google.inject:guice:5.0.1") //NEW
 
+    //Spark
+    implementation("com.sparkjava:spark-core:2.9.3") //NEW
+    implementation("com.sparkjava:spark-template-velocity:2.7.1") ////NEW spark template engine
+    implementation("org.slf4j:slf4j-simple:1.7.21") //NEW fix Spark SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.12.3") //NEW
+
+    //graphql
+    implementation("com.graphql-java:graphql-java:16.2")
 
     // Use JUnit Jupiter API for testing.
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
